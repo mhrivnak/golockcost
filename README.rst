@@ -39,6 +39,7 @@ The test environment:
 * Intel Core2 Duo T8300 (not very recent)
 
 ::
+
     job size:  100us
     done in  9.044152192s
     overhead: 126.10%
