@@ -34,6 +34,7 @@ took, and a percentage measurement of how much extra time was spent not doing
 work. In a perfect world, they would finish in 4 seconds with 0% overhead.
 
 The test environment:
+
 * go 1.1.2
 * linux 3.11.0 on x86_64
 * Intel Core2 Duo T8300 (not very recent)
