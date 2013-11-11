@@ -64,6 +64,9 @@ The test environment:
 Analysis
 --------
 
+It is interesting to note that the overhead penalty is roughly linear, dropping
+by a factor of 10 each time the job size increases by a factor of 10.
+
 The first block shows a job size of 100 microseconds. That's 10,000 jobs to get
 through one second of work! Each job requires a channel operation on the way
 in, and another on the way out, so that's 20,000 channel operations for one
@@ -77,6 +80,11 @@ longer to do the work.
 With a job size of 10ms, we're only doing 100 jobs to complete one second of
 work, and thus 200 channel operations. In this case, our penalty was only 1.3%,
 which is approaching a reasonable cost for using channels.
+
+Given that the penalty is linear, we can safely calculate from the first run
+that since an extra 5 seconds were spent performing 240,000 channel operations,
+each channel operation took about 21 microseconds. To state the obvious, that
+adds up!
 
 Variations
 ----------
@@ -95,6 +103,6 @@ to batch as much work as you reasonably can into each job.
 
 As always, if performance is a concern, you should take your own measurements
 and determine how much channel overhead is acceptable for your particular use
-case. That said, we have demonstrated that channels should not be used to feed
-workers without giving at least some thought to how much time a worker will
-spend on each job.
+case. That said, this demonstations shows that channels should not be used to
+feed workers without giving at least some thought to how much time a worker
+will spend on each job.
