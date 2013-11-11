@@ -59,10 +59,10 @@ func Receiver(results chan time.Duration, total_work time.Duration, done chan bo
 // which simulates doing that much work (reminds me of a former colleague).
 // When done, sends the job's duration down the "out" channel.
 func Worker(in chan time.Duration, out chan time.Duration) {
-    var interval time.Duration
+	var interval time.Duration
 	for {
 		interval = <-in
-        time.Sleep(interval)
-        out <- interval
+		time.Sleep(interval)
+		out <- interval
 	}
 }
