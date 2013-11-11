@@ -92,7 +92,7 @@ Variations
 Changing the number of workers did not have a large impact on the amount of
 overhead.
 
-On my CPU, which has 2 cores and no hyperthreading, setting MAXGOPROCS to 2
+On my CPU, which has 2 cores and no hyper-threading, setting MAXGOPROCS to 2
 increased the overhead to 136%, 15%, 1.5%, 0.16%, and 0.02% respectively.
 
 Conclusions
@@ -103,6 +103,6 @@ to batch as much work as you reasonably can into each job.
 
 As always, if performance is a concern, you should take your own measurements
 and determine how much channel overhead is acceptable for your particular use
-case. That said, this demonstations shows that channels should not be used to
+case. That said, this demonstration shows that channels should not be used to
 feed workers without giving at least some thought to how much time a worker
 will spend on each job.
